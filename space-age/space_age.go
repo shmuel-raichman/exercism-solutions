@@ -18,5 +18,18 @@ func Age(seconds, planet) float64 {
 	 )
 
 
+	 var ageInSeconds float64 = 189839836 //1000000000
+	 // var VenusOrbitalPeriod float64 = 0.61519726
+	 var secondsInEarthOrbit float64 = 31557600
+	 var plantOrbitalPeriod = planet
+
+	 var years float64 = ageInSeconds / (secondsInEarthOrbit * plantOrbitalPeriod)
+	 // var secondsInEarth = seconds / (31557600 * VenusOrbitalPeriod)
+	 fmt.Printf("Debug: %#v \n", years)
+	 //var years float64 = earthSeconds / (year * day * hour * second)
+	 var yearsRoundedNumber = math.Round(years * 100) / 100
+ 
+	 fmt.Printf("Debug: %#v ", yearsRoundedNumber)
+
 	return age
 }
