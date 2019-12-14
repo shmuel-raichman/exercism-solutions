@@ -47,19 +47,29 @@ import (
 
 func main(){
 
-	type PlantPeriod float64
+	// type PlantPeriod float64
 
-	const (
-		Mercury PlantPeriod = 0.2408467
-		Venus   PlantPeriod = 0.61519726
-		Earth   PlantPeriod = 1.0
-		Mars    PlantPeriod = 1.8808158
-		Jupiter PlantPeriod = 11.862615
-		Saturn  PlantPeriod = 29.447498
-		Uranus  PlantPeriod = 84.016846
-		Neptune PlantPeriod = 164.79132
-	 )
+	// const (
+	// 	Mercury PlantPeriod = 0.2408467
+	// 	Venus   PlantPeriod = 0.61519726
+	// 	Earth   PlantPeriod = 1.0
+	// 	Mars    PlantPeriod = 1.8808158
+	// 	Jupiter PlantPeriod = 11.862615
+	// 	Saturn  PlantPeriod = 29.447498
+	// 	Uranus  PlantPeriod = 84.016846
+	// 	Neptune PlantPeriod = 164.79132
+	//  )
 
+	var planets = map[string]float64{
+		"Mercury": 0.2408467,
+		"Venus":   0.61519726,
+		"Earth":   1.0,
+		"Mars":    1.8808158,
+		"Jupiter": 11.862615, 
+		"Saturn":  29.447498,
+		"Uranus":  84.016846,
+		"Neptune": 164.79132, // Comma is necessary'
+	}
 
 	//  - Mercury: orbital period 0.2408467 Earth years
 	//  - Venus: orbital period 0.61519726 Earth years
@@ -74,16 +84,17 @@ func main(){
 	// 	Address: "test",
 	// }
 
-	var planet = "Venus"
+	var planet = "Earth"
 
 	// value, err := reflections.GetField(person, st)
 	//value = "test" //:= reflect.Indirect(person).FieldByName(st)
-
-	var ageInSeconds float64 = 189839836 //1000000000
+	// Mercury = 2134835688 = 280.88
+	// Venus = 189839836 = 9.78
+	// Earth = 1000000000 = 31.69
+	var ageInSeconds float64 = 1000000000 //1000000000
 	// var VenusOrbitalPeriod float64 = 0.61519726
 	var secondsInEarthOrbit float64 = 31557600
-	var plantOrbitalPeriod PlantPeriod
-	plantOrbitalPeriod = "Venus"
+	var plantOrbitalPeriod float64 = planets[planet]
 	// var planet = "fasd"
 	// // 60 x 60 x 24 x 365
 	// var age = 1.1

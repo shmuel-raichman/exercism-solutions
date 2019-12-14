@@ -1,35 +1,34 @@
+/*
+* Package space provide age conversion method for different planets
+*/
 package space
 
-func Age(seconds, planet) float64 {
+import (
+	"math"
+)
 
-	// var age = 1.1
+// Create custom type since that what's the function gets. 
+type Planet string	
 
-	type PlantPeriod float64
+// Age convert seconds to years age on diffrents planets.
+func Age(ageInSeconds float64,  planet Planet) float64 {
 
-	const (
-		Mercury PlantPeriod = 0.2408467
-		Venus   PlantPeriod = 0.61519726
-		Earth   PlantPeriod = 1.0
-		Mars    PlantPeriod = 1.8808158
-		Jupiter PlantPeriod = 11.862615
-		Saturn  PlantPeriod = 29.447498
-		Uranus  PlantPeriod = 84.016846
-		Neptune PlantPeriod = 164.79132
-	 )
+	var plantsOrbitalPeriod = map [Planet] float64 {
+		"Mercury": 0.2408467,
+		"Venus":   0.61519726,
+		"Earth":   1.0,
+		"Mars":    1.8808158,
+		"Jupiter": 11.862615, 
+		"Saturn":  29.447498,
+		"Uranus":  84.016846,
+		"Neptune": 164.79132, // Comma is necessary
+	}
 
-
-	 var ageInSeconds float64 = 189839836 //1000000000
-	 // var VenusOrbitalPeriod float64 = 0.61519726
 	 var secondsInEarthOrbit float64 = 31557600
-	 var plantOrbitalPeriod = planet
-
-	 var years float64 = ageInSeconds / (secondsInEarthOrbit * plantOrbitalPeriod)
-	 // var secondsInEarth = seconds / (31557600 * VenusOrbitalPeriod)
-	 fmt.Printf("Debug: %#v \n", years)
-	 //var years float64 = earthSeconds / (year * day * hour * second)
+	 var years float64 = ageInSeconds / (secondsInEarthOrbit * plantsOrbitalPeriod[planet])
+	 // Round the number to match the test_case expected value.
 	 var yearsRoundedNumber = math.Round(years * 100) / 100
- 
-	 fmt.Printf("Debug: %#v ", yearsRoundedNumber)
 
-	return age
+	 // return var and not directly to make it more clear what's returning here.
+	return yearsRoundedNumber
 }
