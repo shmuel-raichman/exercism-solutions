@@ -15,5 +15,5 @@ func ShareWith(name string) string {
 	}
 	// concat the massage
 	return fmt.Sprintf("One for %s, one for me.", name)
-
+	
 }
